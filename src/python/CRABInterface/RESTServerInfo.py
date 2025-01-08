@@ -41,7 +41,7 @@ class RESTServerInfo(RESTEntity):
 
     @conn_handler(services=['centralconfig'])
     def delegatedn(self, **kwargs):
-        yield {'services': self.centralcfg.centralconfig['delegate-dn']}
+        yield {'services': self.get('delegatedn')}
 
     @conn_handler(services=['centralconfig'])
     def backendurls(self , **kwargs):
