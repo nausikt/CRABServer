@@ -170,6 +170,7 @@ def handleNewTask(resthost, dbInstance, config, task, procnum, *args, **kwargs):
     crabserver = CRABRest(resthost, config.TaskWorker.cmscert, config.TaskWorker.cmskey, retry=20,
                           logger=logging.getLogger(str(procnum)), userAgent='CRABTaskWorker', version=__version__)
     crabserver.setDbInstance(dbInstance)
+    breakpoint()
     handler = TaskHandler(task, procnum, crabserver, config, 'handleNewTask', createTempDir=True)
     rucioClient = getNativeRucioClient(config=config, logger=handler.logger)
     # Temporary use `crab_input` account to checking other account quota.

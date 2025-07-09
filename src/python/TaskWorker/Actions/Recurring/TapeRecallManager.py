@@ -199,6 +199,7 @@ class TapeRecallManager(BaseRecurringAction):
         # should this go in CRABUtils/TaskUtils.py ?
         data = {'subresource': 'taskbyddmreqid', 'ddmreqid': ruleId}
         res = self.crabserver.get(api='task', data=urlencode(data))
+        breakpoint()
         tasks = res[0]['result']  # for obscure reasons this has the form [['task1'],['task2']...]
         taskList = [t[0] for t in tasks]
         return taskList
